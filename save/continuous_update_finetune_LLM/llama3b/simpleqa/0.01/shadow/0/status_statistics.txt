@@ -1,0 +1,29 @@
+SHADOW Model - Trial 0 - Converted Status Pattern Statistics
+======================================================================
+
+Total samples: 2163
+Total timestamps: 40
+
+Status encoding:
+  0: Unseen (0->0, not breakpoint)
+  1: Retain (1->1, not breakpoint)
+  2: Insert (0->1, breakpoint)
+  3: Remove (1->0, breakpoint)
+
+Pattern Distribution:
+Pattern                                            Count           Percentage     
+--------------------------------------------------------------------------------
+All Unseen (no breakpoint)                         13                       0.60%
+All Retain (no breakpoint)                         1095                    50.62%
+0 insert, 1 remove breakpoints                     375                     17.34%
+1 insert, 0 remove breakpoints                     375                     17.34%
+1 insert, 1 remove breakpoints                     305                     14.10%
+
+
+Detailed Status Count Statistics:
+Status Type                    Total Count          Average per Sample  
+----------------------------------------------------------------------
+Unseen (0->0)                  16640                7.69
+Retain (1->1)                  68520                31.68
+Insert (0->1)                  680                  0.31
+Remove (1->0)                  680                  0.31

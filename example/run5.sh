@@ -1,0 +1,1 @@
+python main.py  --attack_method LSTM  --window_size 5 --U_method continuous_update_finetune --dataset_name sst5 --net_name pythia70m_dropout  --trials 1 --proportion_of_group_unlearn 0.01  --num_epochs 10 --device cuda:1

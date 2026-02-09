@@ -1,0 +1,203 @@
+SHADOW Model - Trial 0 - Timestamp Logs
+==================================================
+
+Timestamp 0:
+  -> Final accuracy - Train: 0.9964, Test: 0.6610, Insert: 0.9920, Remove: 0.5840
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 1:
+  -> Final accuracy - Train: 0.9944, Test: 0.6678, Insert: 0.9920, Remove: 0.5960
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 2:
+  -> Final accuracy - Train: 0.9934, Test: 0.6698, Insert: 0.9920, Remove: 0.6320
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 3:
+  -> Final accuracy - Train: 0.9896, Test: 0.6600, Insert: 0.9800, Remove: 0.5800
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 4:
+  -> Final accuracy - Train: 0.9960, Test: 0.6846, Insert: 0.9960, Remove: 0.5880
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 5:
+  -> Final accuracy - Train: 0.9950, Test: 0.6884, Insert: 0.9960, Remove: 0.6520
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 6:
+  -> Final accuracy - Train: 0.9952, Test: 0.6812, Insert: 1.0000, Remove: 0.6120
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 7:
+  -> Final accuracy - Train: 0.9961, Test: 0.6966, Insert: 0.9960, Remove: 0.6040
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 8:
+  -> Final accuracy - Train: 0.9938, Test: 0.6958, Insert: 0.9920, Remove: 0.6960
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 9:
+  -> Final accuracy - Train: 0.9899, Test: 0.6840, Insert: 0.9880, Remove: 0.6040
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 10:
+  -> Final accuracy - Train: 0.9963, Test: 0.7008, Insert: 0.9960, Remove: 0.6040
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 11:
+  -> Final accuracy - Train: 0.9922, Test: 0.6908, Insert: 0.9760, Remove: 0.6360
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 12:
+  -> Final accuracy - Train: 0.9979, Test: 0.7118, Insert: 0.9960, Remove: 0.6640
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 13:
+  -> Final accuracy - Train: 0.9968, Test: 0.7050, Insert: 0.9880, Remove: 0.6520
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 14:
+  -> Final accuracy - Train: 0.9953, Test: 0.7064, Insert: 1.0000, Remove: 0.6320
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 15:
+  -> Final accuracy - Train: 0.9913, Test: 0.7060, Insert: 0.9960, Remove: 0.6880
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 16:
+  -> Final accuracy - Train: 0.9952, Test: 0.7066, Insert: 0.9960, Remove: 0.6120
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 17:
+  -> Final accuracy - Train: 0.9954, Test: 0.7116, Insert: 0.9880, Remove: 0.6080
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 18:
+  -> Final accuracy - Train: 0.9968, Test: 0.7166, Insert: 0.9920, Remove: 0.6280
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 19:
+  -> Final accuracy - Train: 0.9952, Test: 0.7182, Insert: 0.9880, Remove: 0.6680
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 20:
+  -> Final accuracy - Train: 0.9958, Test: 0.7158, Insert: 1.0000, Remove: 0.6000
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 21:
+  -> Final accuracy - Train: 0.9940, Test: 0.7122, Insert: 1.0000, Remove: 0.6040
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 22:
+  -> Final accuracy - Train: 0.9942, Test: 0.7104, Insert: 1.0000, Remove: 0.5720
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 23:
+  -> Final accuracy - Train: 0.9972, Test: 0.7178, Insert: 0.9960, Remove: 0.6120
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 24:
+  -> Final accuracy - Train: 0.9976, Test: 0.7254, Insert: 0.9920, Remove: 0.6840
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 25:
+  -> Final accuracy - Train: 0.9926, Test: 0.7118, Insert: 0.9920, Remove: 0.6680
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 26:
+  -> Final accuracy - Train: 0.9970, Test: 0.7176, Insert: 0.9840, Remove: 0.6000
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 27:
+  -> Final accuracy - Train: 0.9968, Test: 0.7240, Insert: 0.9920, Remove: 0.6240
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 28:
+  -> Final accuracy - Train: 0.9967, Test: 0.7112, Insert: 0.9960, Remove: 0.6000
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 29:
+  -> Final accuracy - Train: 0.9943, Test: 0.7074, Insert: 0.9920, Remove: 0.5960
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 30:
+  -> Final accuracy - Train: 0.9966, Test: 0.7254, Insert: 0.9960, Remove: 0.6720
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 31:
+  -> Final accuracy - Train: 0.9951, Test: 0.7200, Insert: 0.9880, Remove: 0.6440
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 32:
+  -> Final accuracy - Train: 0.9948, Test: 0.7140, Insert: 0.9880, Remove: 0.6240
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 33:
+  -> Final accuracy - Train: 0.9944, Test: 0.7094, Insert: 0.9840, Remove: 0.6280
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 34:
+  -> Final accuracy - Train: 0.9965, Test: 0.7154, Insert: 0.9960, Remove: 0.6400
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 35:
+  -> Final accuracy - Train: 0.9928, Test: 0.7076, Insert: 0.9840, Remove: 0.6000
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 36:
+  -> Final accuracy - Train: 0.9948, Test: 0.7130, Insert: 0.9960, Remove: 0.6520
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 37:
+  -> Final accuracy - Train: 0.9920, Test: 0.7088, Insert: 0.9880, Remove: 0.5920
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 38:
+  -> Final accuracy - Train: 0.9978, Test: 0.7186, Insert: 0.9960, Remove: 0.5960
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 39:
+  -> Final accuracy - Train: 0.9946, Test: 0.7118, Insert: 0.9880, Remove: 0.5960
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 40:
+  -> Final accuracy - Train: 0.9968, Test: 0.7232, Insert: 1.0000, Remove: 0.6200
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 41:
+  -> Final accuracy - Train: 0.9982, Test: 0.7312, Insert: 1.0000, Remove: 0.6640
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 42:
+  -> Final accuracy - Train: 0.9979, Test: 0.7240, Insert: 1.0000, Remove: 0.6400
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 43:
+  -> Final accuracy - Train: 0.9951, Test: 0.7208, Insert: 0.9920, Remove: 0.6200
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 44:
+  -> Final accuracy - Train: 0.9953, Test: 0.7270, Insert: 0.9920, Remove: 0.6240
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 45:
+  -> Final accuracy - Train: 0.9960, Test: 0.7210, Insert: 1.0000, Remove: 0.5840
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 46:
+  -> Final accuracy - Train: 0.9945, Test: 0.7186, Insert: 0.9880, Remove: 0.5800
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 47:
+  -> Final accuracy - Train: 0.9949, Test: 0.7280, Insert: 0.9880, Remove: 0.6560
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 48:
+  -> Final accuracy - Train: 0.9962, Test: 0.7272, Insert: 0.9960, Remove: 0.6400
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+
+Timestamp 49:
+  -> Final accuracy - Train: 0.9942, Test: 0.7134, Insert: 0.9960, Remove: 0.6000
+  -> Alternations: 30 (remove: 1 epochs, retain: 1 epochs)
+

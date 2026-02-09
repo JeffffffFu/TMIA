@@ -1,0 +1,47 @@
+SHADOW Model - Trial 0 - Converted Status Pattern Statistics
+======================================================================
+
+Total samples: 30000
+Total timestamps: 50
+
+Status encoding:
+  0: Unseen (0->0, not breakpoint)
+  1: Retain (1->1, not breakpoint)
+  2: Insert (0->1, breakpoint)
+  3: Remove (1->0, breakpoint)
+
+Pattern Distribution:
+Pattern                                            Count           Percentage     
+--------------------------------------------------------------------------------
+All Unseen (no breakpoint)                         300                      1.00%
+All Retain (no breakpoint)                         14144                   47.15%
+0 insert, 1 remove breakpoints                     3473                    11.58%
+1 insert, 0 remove breakpoints                     3462                    11.54%
+1 insert, 1 remove breakpoints                     7805                    26.02%
+1 insert, 2 remove breakpoints                     399                      1.33%
+2 insert, 1 remove breakpoints                     410                      1.37%
+2 insert, 2 remove breakpoints                     7                        0.02%
+
+
+Detailed Status Count Statistics:
+Status Type                    Total Count          Average per Sample  
+----------------------------------------------------------------------
+Unseen (0->0)                  237500               7.92
+Retain (1->1)                  1237500              41.25
+Insert (0->1)                  12500                0.42
+Remove (1->0)                  12500                0.42
+
+
+Member Interval Length Distribution:
+Member Interval Length         Sample Count         Percentage     
+-----------------------------------------------------------------
+0                              300                           1.00%
+1-39                           11629                        38.76%
+40-79                          18071                        60.24%
+
+Summary:
+  Total samples: 30000
+  Average member length: 42.50
+  Min member length: 0
+  Max member length: 51
+  Median member length: 48.00

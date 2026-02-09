@@ -1,0 +1,1 @@
+python main.py --U_method continuous_update_finetune --dataset_name cinic10 --net_name mobilenet  --trials 1  --batch_size 32 --lr 0.001 --proportion_of_group_unlearn 0.001  --num_epochs 50 --device cuda:1

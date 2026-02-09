@@ -1,0 +1,47 @@
+SHADOW Model - Trial 0 - Converted Status Pattern Statistics
+======================================================================
+
+Total samples: 5173
+Total timestamps: 80
+
+Status encoding:
+  0: Unseen (0->0, not breakpoint)
+  1: Retain (1->1, not breakpoint)
+  2: Insert (0->1, breakpoint)
+  3: Remove (1->0, breakpoint)
+
+Pattern Distribution:
+Pattern                                            Count           Percentage     
+--------------------------------------------------------------------------------
+All Unseen (no breakpoint)                         306                      5.92%
+All Retain (no breakpoint)                         1140                    22.04%
+0 insert, 1 remove breakpoints                     1188                    22.97%
+1 insert, 0 remove breakpoints                     1186                    22.93%
+1 insert, 1 remove breakpoints                     1313                    25.38%
+1 insert, 2 remove breakpoints                     19                       0.37%
+2 insert, 1 remove breakpoints                     21                       0.41%
+
+
+Detailed Status Count Statistics:
+Status Type                    Total Count          Average per Sample  
+----------------------------------------------------------------------
+Unseen (0->0)                  154720               29.91
+Retain (1->1)                  254000               49.10
+Insert (0->1)                  2560                 0.49
+Remove (1->0)                  2560                 0.49
+
+
+Member Interval Length Distribution:
+Member Interval Length         Sample Count         Percentage     
+-----------------------------------------------------------------
+0                              306                           5.92%
+1-39                           1380                         26.68%
+40-79                          2322                         44.89%
+80-119                         1165                         22.52%
+
+Summary:
+  Total samples: 5173
+  Average member length: 50.22
+  Min member length: 0
+  Max member length: 81
+  Median member length: 49.00

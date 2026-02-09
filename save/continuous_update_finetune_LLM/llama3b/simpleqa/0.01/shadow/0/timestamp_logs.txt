@@ -1,0 +1,243 @@
+SHADOW Model - Trial 0 - Timestamp Logs
+==================================================
+
+Timestamp 0:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.44 | Val PPL: 8.70
+
+Timestamp 1:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.31 | Val PPL: 10.52
+
+Timestamp 2:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.30 | Val PPL: 9.08
+
+Timestamp 3:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.26 | Val PPL: 9.15
+
+Timestamp 4:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.26 | Val PPL: 8.89
+
+Timestamp 5:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.27 | Val PPL: 8.25
+
+Timestamp 6:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.29 | Val PPL: 6.79
+
+Timestamp 7:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.26 | Val PPL: 6.25
+
+Timestamp 8:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.23 | Val PPL: 6.18
+
+Timestamp 9:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.27 | Val PPL: 5.80
+
+Timestamp 10:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.25 | Val PPL: 4.89
+
+Timestamp 11:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.24 | Val PPL: 4.93
+
+Timestamp 12:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.25 | Val PPL: 4.85
+
+Timestamp 13:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.25 | Val PPL: 4.23
+
+Timestamp 14:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.25 | Val PPL: 7.24
+
+Timestamp 15:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.27 | Val PPL: 5.87
+
+Timestamp 16:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.25 | Val PPL: 5.43
+
+Timestamp 17:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.27 | Val PPL: 4.78
+
+Timestamp 18:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.29 | Val PPL: 4.73
+
+Timestamp 19:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.30 | Val PPL: 4.91
+
+Timestamp 20:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.25 | Val PPL: 4.71
+
+Timestamp 21:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.24 | Val PPL: 4.46
+
+Timestamp 22:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.27 | Val PPL: 4.48
+
+Timestamp 23:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.25 | Val PPL: 4.16
+
+Timestamp 24:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.30 | Val PPL: 4.56
+
+Timestamp 25:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.27 | Val PPL: 4.61
+
+Timestamp 26:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.27 | Val PPL: 4.35
+
+Timestamp 27:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.30 | Val PPL: 4.44
+
+Timestamp 28:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.28 | Val PPL: 4.16
+
+Timestamp 29:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.26 | Val PPL: 4.40
+
+Timestamp 30:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.28 | Val PPL: 4.30
+
+Timestamp 31:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.26 | Val PPL: 3.92
+
+Timestamp 32:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.28 | Val PPL: 4.15
+
+Timestamp 33:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.29 | Val PPL: 4.28
+
+Timestamp 34:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.31 | Val PPL: 4.62
+
+Timestamp 35:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.29 | Val PPL: 4.15
+
+Timestamp 36:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.27 | Val PPL: 4.28
+
+Timestamp 37:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.28 | Val PPL: 4.04
+
+Timestamp 38:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.28 | Val PPL: 3.88
+
+Timestamp 39:
+  -> Remove: 17 samples
+  -> Insert: 17 samples
+  -> Training set size: 1730
+  -> Train PPL: 1.29 | Val PPL: 4.06
+

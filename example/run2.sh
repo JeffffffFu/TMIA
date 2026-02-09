@@ -1,0 +1,1 @@
+python main.py --attack_method UW_MIA --U_method continuous_update_finetune --dataset_name sst5 --net_name pythia70m --proportion_of_group_unlearn 0.01 --device cuda:0
