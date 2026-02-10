@@ -51,3 +51,26 @@ I-Rec: {xx}
 I-F1: {xx}
 ======================================================================
 ```
+
+Due to the substantial computational cost of training continuously
+updated models, we provide pre-generated continuous update outputs
+for two settings:
+(1) a Pythia-70M model on the SST-5 dataset, and
+(2) a SimpleCNN model on the CIFAR-10 dataset as above.
+
+These outputs can be used directly to reproduce the reported attack
+results without re-running the full continuous update training process.
+For other model architectures and datasets, users can generate the
+corresponding continuous update outputs by running the commands
+listed below.
+
+```bash
+for LM model training:
+python main.py --U_method continuous_update_finetune --dataset_name sst5 --net_name pythia70m  --trials 1  --batch_size 32 --lr 0.00001 --proportion_of_group_unlearn 0.01  --num_epochs 10 --device cuda:1
+
+for CNN model training:
+python main.py --U_method continuous_update_finetune --dataset_name cifar10 --net_name resnet18  --trials 1  --batch_size 256 --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
+```
+
+To obtain output on other datasets and network architectures,
+you only need to change the `--dataset_name` and `--net_name` arguments.
