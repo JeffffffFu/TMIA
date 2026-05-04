@@ -261,7 +261,7 @@ def transfer(args):
                     'net_name': net_name,
                     'dataset_name': dataset_name,
                     'proportion': proportion,
-                    'attack_method': 'TMIA',
+                    'attack_method': 'LSTM',
                     'window_size': window_size,
                     'U_method': shadow_method  # 添加 U_method 用于构建模型路径
                 }
@@ -383,7 +383,7 @@ def transfer(args):
                     'net_name': shadow_model,
                     'dataset_name': dataset_name,
                     'proportion': proportion,
-                    'attack_method': 'TMIA',
+                    'attack_method': 'LSTM',
                     'window_size': window_size,
                     'U_method': 'continuous_update_finetune'
                 }
@@ -507,7 +507,7 @@ def transfer(args):
                     'net_name': net_name,
                     'dataset_name': shadow_dataset,
                     'proportion': source_proportion,
-                    'attack_method': 'TMIA',
+                    'attack_method': 'LSTM',
                     'window_size': window_size,
                     'U_method': 'continuous_update_finetune'  # 添加 U_method 用于构建模型路径
                 }

@@ -1,1 +1,0 @@
-python main.py  --attack_method LSTM --window_size 5 --U_method continuous_update_finetune --dataset_name cifar10 --net_name simple_cnn_dropout  --trials 1  --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1

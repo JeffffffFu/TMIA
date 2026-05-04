@@ -1,4 +1,3 @@
-
 import os
 import sys
 
@@ -7,9 +6,9 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 try:
-    from .utils import parse_list_arg
+    from .utils import parse_list_arg, save_eval_result_json
 except ImportError:
-    from utils import parse_list_arg
+    from utils import parse_list_arg, save_eval_result_json
 
 BASELINE_DEFAULTS = {
     'trial': 0,
@@ -29,19 +28,19 @@ BASELINE_DEFAULTS = {
     'num_insert': 1,
     'num_remove': 1,
     'test_same_as_train': True,
+    'enable_k_tolerance_eval': False,
 }
 
 
 def run_baseline_attack(global_args: dict):
-
     data_root = os.path.join(project_root, 'save')
     baseline_dir = os.path.dirname(os.path.abspath(__file__))
     checkpoint_dir = os.path.join(project_root, 'mia_checkpoints')
-    results_dir = os.path.join(baseline_dir, 'results')
+    result_root = os.path.join(project_root, 'result')
     defaults = dict(BASELINE_DEFAULTS)
     defaults['data_root'] = data_root
     defaults['checkpoint_dir'] = checkpoint_dir
-    defaults['results_dir'] = results_dir
+    defaults['result_root'] = result_root
 
     keys_from_main = ('attack_method', 'U_method', 'dataset_name', 'net_name',
                       'proportion_of_group_unlearn', 'device')
@@ -58,7 +57,7 @@ def run_baseline_attack(global_args: dict):
     elif attack == 'UW_MIA':
         internal_method = 'delta'
     else:
-        raise ValueError(f"不支持的 attack_method: {attack}，支持: TW_MIA, UW_MIA")
+        raise ValueError(f"Unsupported attack_method: {attack}. Supported: TW_MIA, UW_MIA")
 
     net_name = merged.get('net_name') or 'pythia70m'
     dataset_name = merged.get('dataset_name') or 'sst5'
@@ -80,12 +79,11 @@ def run_baseline_attack(global_args: dict):
                 args=merged,
                 data_root=data_root,
                 checkpoint_dir=merged['checkpoint_dir'],
-                results_dir=merged['results_dir'],
+                result_root=merged['result_root'],
                 device=merged['device'],
                 num_target_per_pattern=merged['num_target_per_pattern'],
                 seed=merged['seed'],
                 debug=merged['debug'],
-                print_config=True,
             )
         else:
             from .mia import run_mia_threshold_attack
@@ -98,8 +96,9 @@ def run_baseline_attack(global_args: dict):
                 'use_ppl': merged['use_ppl'],
                 'normalize_ppl': merged['normalize_ppl'],
                 'attack_method': 'mia_threshold',
+                'enable_k_tolerance_eval': merged.get('enable_k_tolerance_eval', False),
             }
-            run_mia_threshold_attack(
+            results = run_mia_threshold_attack(
                 args=args,
                 data_root=data_root,
                 checkpoint_dir=checkpoint_dir,
@@ -108,7 +107,23 @@ def run_baseline_attack(global_args: dict):
                 num_trials=merged['num_trials'],
                 seed=merged['seed'],
                 debug=merged['debug'],
-                print_config=True,
+            )
+            evaluation = results.get('evaluation', {})
+            save_eval_result_json(
+                merged['result_root'],
+                merged['U_method'],
+                net_list[0],
+                dataset_list[0],
+                merged.get('proportion_of_group_unlearn'),
+                attack,
+                {
+                    'precision': evaluation.get('precision', 0.0),
+                    'recall': evaluation.get('recall', 0.0),
+                    'f1': evaluation.get('f1', 0.0),
+                    'I_Pre': evaluation.get('I_Pre', 0.0),
+                    'I_Rec': evaluation.get('I_Rec', 0.0),
+                    'I_F1': evaluation.get('I_F1', 0.0),
+                },
             )
     else:
         assert internal_method == 'delta'
@@ -117,7 +132,7 @@ def run_baseline_attack(global_args: dict):
             run_batch_delta_attack(
                 args=merged,
                 data_root=data_root,
-                results_dir=merged['results_dir'],
+                result_root=merged['result_root'],
                 num_shadow_samples=merged['num_shadow_samples'],
                 num_target_samples=merged['num_target_samples'],
                 num_insert=merged['num_insert'],
@@ -125,6 +140,7 @@ def run_baseline_attack(global_args: dict):
                 print_config=True,
                 num_trials=merged['num_trials'],
                 use_ppl=merged['use_ppl'],
+                enable_k_tolerance_eval=merged.get('enable_k_tolerance_eval', False),
             )
         else:
             from .delta_attack import run_delta_attack
@@ -144,7 +160,7 @@ def run_baseline_attack(global_args: dict):
                 'trial': merged['trial'],
                 'shadow_or_target': 'target',
             }
-            run_delta_attack(
+            results = run_delta_attack(
                 shadow_args=shadow_args,
                 target_args=target_args,
                 num_shadow_samples=merged['num_shadow_samples'],
@@ -156,7 +172,31 @@ def run_baseline_attack(global_args: dict):
                 random_seed=merged['seed'],
                 num_trials=merged['num_trials'],
                 use_ppl=merged['use_ppl'],
+                enable_k_tolerance_eval=merged.get('enable_k_tolerance_eval', False),
             )
+            metrics = results.get('metrics', {})
+            result_root = os.path.abspath(os.path.normpath(merged['result_root'] or os.path.join(project_root, 'result')))
+            try:
+                filepath = save_eval_result_json(
+                    result_root,
+                    merged['U_method'],
+                    net_list[0],
+                    dataset_list[0],
+                    merged.get('proportion_of_group_unlearn'),
+                    attack,
+                    {
+                        'precision': metrics.get('membership_precision', 0.0),
+                        'recall': metrics.get('membership_recall', 0.0),
+                        'f1': metrics.get('membership_f1', 0.0),
+                        'I_Pre': metrics.get('I_Pre', 0.0),
+                        'I_Rec': metrics.get('I_Rec', 0.0),
+                        'I_F1': metrics.get('I_F1', 0.0),
+                    },
+                )
+                print(f"\nResults saved to: {filepath}")
+            except Exception as e:
+                print(f"\nFailed to save results: {e}", file=sys.stderr)
+                raise
 
 
 if __name__ == '__main__':

@@ -506,6 +506,57 @@ def load_outputs_and_labels_for_mia_threshold(
     return s_tr, s_te, t_tr, t_te, num_classes
 
 
+def load_ppl_member_nonmember_scores(
+    args: Dict[str, Any],
+    indices: List[int],
+    data_root: str = "save",
+) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Flattened per-timestep scores for PPL-based TW-MIA: -log(PPL).
+    Larger values are more member-like (lower perplexity). Aligns with
+    delta path using log(PPL) as confidence direction.
+    """
+    loader = DataLoader()
+    base_dir = os.path.join(
+        os.getcwd(),
+        data_root,
+        args['U_method'],
+        args['net_name'],
+        args['dataset_name'],
+        str(args['proportion_of_group_unlearn']),
+        args['shadow_or_target'],
+        str(args['trial']),
+    )
+    status_file = os.path.join(base_dir, 'sample_status_converted.npy')
+    if not os.path.exists(status_file):
+        raise FileNotFoundError(f"Status file does not exist: {status_file}")
+    status = np.load(status_file)
+
+    data = loader.load_data_by_indices(
+        args=args,
+        indices=indices,
+        data_root=data_root,
+        use_ppl=True,
+    )
+    outputs = data['outputs']
+    loaded_indices = data['indices']
+    status_sub = status[np.array(loaded_indices)]
+    member = np.isin(status_sub, [1, 2])
+
+    if outputs.ndim != 3 or outputs.shape[-1] != 1:
+        raise ValueError(
+            f"PPL TW-MIA expects outputs shape (N, T, 1), got {outputs.shape}"
+        )
+
+    ppl = outputs.reshape(-1)
+    member_flat = member.reshape(-1)
+    valid = np.isfinite(ppl) & (ppl > 0)
+    ppl = ppl[valid]
+    member_flat = member_flat[valid]
+    scores = -np.log(np.maximum(ppl, 1e-30))
+    return scores[member_flat], scores[~member_flat]
+
+
 def load_training_data(args: Dict[str, Any],
                        num_unseen: int = 100,
                        num_retain: int = 100,
@@ -513,6 +564,8 @@ def load_training_data(args: Dict[str, Any],
                        data_root: str = "../../save",
                        use_ppl: bool = False) -> Tuple[np.ndarray, np.ndarray, List[int]]:
     from .data_processor import DataProcessor
+    from .data_processor import build_path_and_find_timestamps
+    from attack.TMIA.get_training_data import select_test_samples_by_pattern
 
     loader = DataLoader()
     processor = DataProcessor()
@@ -529,6 +582,49 @@ def load_training_data(args: Dict[str, Any],
     )
     status_file = os.path.join(base_dir, 'sample_status_converted.npy')
     ground_truth_status = np.load(status_file)
+
+    _am = args.get('attack_method', '') or ''
+    if _am in ('mia_threshold', 'TW_MIA'):
+        save_path, timestamp_dirs = build_path_and_find_timestamps(args, data_root=data_root)
+        ratio = args.get('training_target_member_ratio', 0.5)
+        num_insert_only = args.get('training_num_insert_only', 0)
+        num_remove_only = args.get('training_num_remove_only', 0)
+        num_insert_remove = args.get('training_num_insert_remove', 20)
+        if args.get('dataset_name', '').lower() == "svhn" and args.get('net_name', '').lower() == "simple_cnn":
+            num_insert_remove = 50
+        elif args.get('net_name', '').lower() == "mobilenet":
+            ratio = 0.6
+        elif args.get('net_name', '').lower() == "gpt2":
+            num_insert_only = 100
+            num_remove_only = 100
+            num_insert_remove = 100
+        selected_indices, _, _ = select_test_samples_by_pattern(
+            save_path=save_path,
+            timestamp_dirs=timestamp_dirs,
+            num_insert_only=num_insert_only,
+            num_remove_only=num_remove_only,
+            num_insert_remove=num_insert_remove,
+            random_seed=args.get('random_seed', None),
+            balance_membership=args.get('balance_test_membership', True),
+            target_member_ratio=ratio
+        )
+        if len(selected_indices) == 0:
+            raise ValueError("No training samples selected for mia_threshold pattern-based sampling")
+
+        selected_data = processor.load_and_extract_ct_features(
+            args=args,
+            indices=selected_indices,
+            data_root=data_root,
+            use_ppl=use_ppl
+        )
+        selected_ct = selected_data['ct_features']
+        selected_labels = []
+        for idx in selected_indices:
+            sample_status = ground_truth_status[idx]
+            sample_labels = np.isin(sample_status, [1, 2]).astype(np.int64)
+            selected_labels.append(sample_labels)
+        selected_labels = np.array(selected_labels)
+        return selected_ct, selected_labels, selected_indices
 
     all_ct_features_list = []
     all_labels_list = []

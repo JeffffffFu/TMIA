@@ -10,7 +10,7 @@ You need to make sure there are GPU hardware and the CUDA Driver Version: 12.2ï¼
 You can install all requirements with:
 
 ```bash
-conda create --name TMIA python=3.9
+conda create --name TMIA python=3.10
 conda activate TMIA
 pip install -r requirements.txt
 ```

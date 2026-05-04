@@ -221,6 +221,8 @@ def attack_breakpoint(args):
         class_ratios = args.get('class_sampling_ratios', [0.3, 1.0, 1.0])
     elif args['net_name']=='mobilenet' and args['dataset_name']=='cinic10':
         class_ratios = args.get('class_sampling_ratios', [1.5, 1.0, 1.0])
+    elif args['net_name']=='mobilenet' and args['dataset_name']=='svhn':
+        class_ratios = args.get('class_sampling_ratios', [0.3, 1.0, 1.0])
     available_counts = [len(class_data[i]) for i in range(3) if len(class_data[i]) > 0]
 
     print("TMIA Start ----------------")

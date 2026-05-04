@@ -1,1 +1,0 @@
-python main.py  --attack_method TMIA  --window_size 5 --U_method continuous_update_finetune --dataset_name sst5 --net_name pythia70m  --trials 1  --batch_size 32 --lr 0.00001 --proportion_of_group_unlearn 0.01  --num_epochs 10 --device cuda:3

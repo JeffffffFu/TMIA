@@ -1,13 +1,14 @@
-# Baseline MIA（train=test 同一套参数）
 # python main.py --attack_method TW_MIA --U_method continuous_update_finetune --dataset_name sst5 --net_name pythia70m --proportion_of_group_unlearn 0.01 --device cuda:0
 # python main.py --attack_method UW_MIA --U_method continuous_update_finetune --dataset_name sst5 --net_name pythia70m --proportion_of_group_unlearn 0.01 --device cuda:0
 
+#main result
+#LM
 python main.py  --attack_method TMIA  --window_size 5 --U_method continuous_update_finetune --dataset_name sst5 --net_name pythia70m  --trials 1  --batch_size 32 --lr 0.00001 --proportion_of_group_unlearn 0.01  --num_epochs 10 --device cuda:3
 python main.py  --attack_method TMIA  --window_size 5  --U_method continuous_update_finetune --dataset_name news20 --net_name pythia70m  --trials 1  --batch_size 32 --lr 0.00001 --proportion_of_group_unlearn 0.01  --num_epochs 10 --device cuda:3
 python main.py  --attack_method TMIA  --window_size 5 --U_method continuous_update_finetune --dataset_name mnli --net_name pythia70m  --trials 1  --batch_size 32 --lr 0.00001 --proportion_of_group_unlearn 0.005  --num_epochs 10 --device cuda:3
 
 
-python main.py  --attack_method TMIA  --window_size 5 --U_method continuous_update_finetune --dataset_name sst5 --net_name gpt2  --trials 1  --batch_size 32 --lr 0.00001 --proportion_of_group_unlearn 0.01  --num_epochs 10 --device cuda:3
+python main.py  --attack_method TMIA  --window_size 9 --U_method continuous_update_finetune --dataset_name sst5 --net_name gpt2  --trials 1  --batch_size 32 --lr 0.00001 --proportion_of_group_unlearn 0.01  --num_epochs 10 --device cuda:3
 python main.py  --attack_method TMIA  --window_size 5  --U_method continuous_update_finetune --dataset_name news20 --net_name gpt2  --trials 1  --batch_size 32 --lr 0.00001 --proportion_of_group_unlearn 0.01  --num_epochs 10 --device cuda:3
 python main.py  --attack_method TMIA  --window_size 5 --U_method continuous_update_finetune --dataset_name mnli --net_name gpt2  --trials 1  --batch_size 32 --lr 0.00001 --proportion_of_group_unlearn 0.005  --num_epochs 10 --device cuda:3
 
@@ -22,25 +23,25 @@ python main.py --attack_method TMIA --window_size 5 --U_method continuous_update
 
 #image
 #resnet18
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune --dataset_name svhn --net_name resnet18  --trials 1   --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune --dataset_name cinic10 --net_name resnet18  --trials 1   --lr 0.001 --proportion_of_group_unlearn 0.001  --num_epochs 50 --device cuda:1
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune --dataset_name cifar10 --net_name resnet18  --trials 1  --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
+python main.py --attack_method TMIA --window_size 11 --U_method continuous_update_finetune --dataset_name svhn --net_name resnet18  --trials 1   --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
+python main.py --attack_method TMIA --window_size 15 --U_method continuous_update_finetune --dataset_name cinic10 --net_name resnet18  --trials 1   --lr 0.001 --proportion_of_group_unlearn 0.001  --num_epochs 50 --device cuda:1
+python main.py --attack_method TMIA --window_size 15 --U_method continuous_update_finetune --dataset_name cifar10 --net_name resnet18  --trials 1  --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
 
 #simplecnn
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune --dataset_name svhn --net_name simple_cnn  --trials 1  --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune --dataset_name cinic10 --net_name simple_cnn  --trials 1  --lr 0.001 --proportion_of_group_unlearn 0.001  --num_epochs 50 --device cuda:1
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune --dataset_name cifar10 --net_name simple_cnn  --trials 1   --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
+python main.py --attack_method TMIA --window_size 11 --U_method continuous_update_finetune --dataset_name svhn --net_name simple_cnn  --trials 1  --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
+python main.py --attack_method TMIA --window_size 15 --U_method continuous_update_finetune --dataset_name cinic10 --net_name simple_cnn  --trials 1  --lr 0.001 --proportion_of_group_unlearn 0.001  --num_epochs 50 --device cuda:1
+python main.py --attack_method TMIA --window_size 19 --U_method continuous_update_finetune --dataset_name cifar10 --net_name simple_cnn  --trials 1   --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
 
 #mobilenet
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune --dataset_name svhn --net_name mobilenet  --trials 1  --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune --dataset_name cinic10 --net_name mobilenet  --trials 1  --lr 0.001 --proportion_of_group_unlearn 0.001  --num_epochs 50 --device cuda:1
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune --dataset_name cifar10 --net_name mobilenet  --trials 1   --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
+python main.py --attack_method TMIA --window_size 15 --U_method continuous_update_finetune --dataset_name svhn --net_name mobilenet  --trials 1  --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
+python main.py --attack_method TMIA --window_size 15 --U_method continuous_update_finetune --dataset_name cinic10 --net_name mobilenet  --trials 1  --lr 0.001 --proportion_of_group_unlearn 0.001  --num_epochs 50 --device cuda:1
+python main.py --attack_method TMIA --window_size 15 --U_method continuous_update_finetune --dataset_name cifar10 --net_name mobilenet  --trials 1   --lr 0.001 --proportion_of_group_unlearn 0.01  --num_epochs 50 --device cuda:1
 
 #LLM
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune_LLM --dataset_name squad --net_name llama3b  --trials 1 --proportion_of_group_unlearn 0.01  --device cuda:0
+python main.py --attack_method TMIA --window_size 11 --U_method continuous_update_finetune_LLM --dataset_name squad --net_name llama3b  --trials 1 --proportion_of_group_unlearn 0.01  --device cuda:0
 python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune_LLM --dataset_name simpleqa --net_name llama3b  --trials 1 --proportion_of_group_unlearn 0.01  --device cuda:0
 
-python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune_LLM --dataset_name squad --net_name llama8b  --trials 1 --proportion_of_group_unlearn 0.01  --device cuda:0
+python main.py --attack_method TMIA --window_size 11 --U_method continuous_update_finetune_LLM --dataset_name squad --net_name llama8b  --trials 1 --proportion_of_group_unlearn 0.01  --device cuda:0
 python main.py --attack_method TMIA --window_size 5 --U_method continuous_update_finetune_LLM --dataset_name simpleqa --net_name llama8b  --trials 1 --proportion_of_group_unlearn 0.01  --device cuda:0
 
 

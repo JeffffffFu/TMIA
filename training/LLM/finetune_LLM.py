@@ -15,11 +15,22 @@ from datetime import datetime
 from datasets import load_dataset, Dataset, concatenate_datasets
 import torch
 from torch.utils.data import Subset
-from transformers import DataCollatorForLanguageModeling, TrainerCallback
 
-from unsloth import FastLanguageModel, UnslothTrainer, UnslothTrainingArguments, is_bfloat16_supported
-from data.load_data import get_data
-from data.prepare_data import split_dataset4
+_UNSLOTH_SYMBOLS = None
+
+
+def _load_unsloth_symbols():
+    global _UNSLOTH_SYMBOLS
+    if _UNSLOTH_SYMBOLS is None:
+        from unsloth import FastLanguageModel, UnslothTrainer, UnslothTrainingArguments, is_bfloat16_supported
+
+        _UNSLOTH_SYMBOLS = (
+            FastLanguageModel,
+            UnslothTrainer,
+            UnslothTrainingArguments,
+            is_bfloat16_supported,
+        )
+    return _UNSLOTH_SYMBOLS
 
 
 # ------------------------ Evaluation helpers ------------------------ #
@@ -240,7 +251,7 @@ def compute_per_sample_ppl(model, tokenizer, dataset, max_seq_length: int, max_s
     return per_sample_results
 
 
-class PPLEvaluationCallback(TrainerCallback):
+class PPLEvaluationCallback:
 
     def __init__(self, train_dataset, val_dataset, tokenizer, max_seq_length, eval_samples=500):
         self.train_dataset = train_dataset
@@ -440,6 +451,12 @@ def finetune_on_retain_set_LLM(model, tokenizer, retain_dataset, max_seq_length,
 
 
 def train_single_model_LLM(args, train_dataset, val_dataset, trial, timestamps, is_shadow=False):
+    (
+        FastLanguageModel,
+        UnslothTrainer,
+        UnslothTrainingArguments,
+        is_bfloat16_supported,
+    ) = _load_unsloth_symbols()
 
     model_prefix = "[SHADOW]" if is_shadow else ""
     model_type = "shadow" if is_shadow else "target"
@@ -1043,6 +1060,9 @@ def train_single_model_LLM(args, train_dataset, val_dataset, trial, timestamps, 
 
 
 def continuous_update_finetune_LLM(args):
+    _load_unsloth_symbols()
+    from data.load_data import get_data
+
 
     print("dataset and net_name:", args.get('dataset_name', 'squad'), args.get('net_name', None))
     dataset_name = args.get('dataset_name', 'squad')
@@ -1112,7 +1132,6 @@ def continuous_update_finetune_LLM(args):
             timestamps=timestamps,
             is_shadow=False
         )
-        
         train_single_model_LLM(
             args=args,
             train_dataset=shadow_m,
@@ -1121,6 +1140,5 @@ def continuous_update_finetune_LLM(args):
             timestamps=timestamps,
             is_shadow=True
         )
-    
     print("\nDone. Continuous update fine-tuning completed.")
 

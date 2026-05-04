@@ -1,1 +1,0 @@
-python main.py --attack_method LSTM --U_method continuous_update_finetune_dp --dataset_name sst5 --net_name pythia70m  --trials 1  --batch_size 128 --lr 0.0001 --proportion_of_group_unlearn 0.01  --num_epochs 20 --device cuda:3

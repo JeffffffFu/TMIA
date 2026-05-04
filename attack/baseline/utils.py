@@ -23,12 +23,15 @@ def save_eval_result_json(
         "I-Rec": pct(metrics.get("I-Rec", metrics.get("I_Rec", 0.0))),
         "I-F1": pct(metrics.get("I-F1", metrics.get("I_F1", 0.0))),
     }
-    parts = [str(result_root), str(U_method), str(model_name), str(dataset_name), str(proportion), str(attack_method)]
+    result_root = os.path.abspath(os.path.normpath(str(result_root)))
+    parts = [result_root, str(U_method), str(model_name), str(dataset_name), str(proportion), str(attack_method)]
     dirpath = os.path.join(*parts)
     os.makedirs(dirpath, exist_ok=True)
     filepath = os.path.join(dirpath, "result.json")
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2, ensure_ascii=False)
+        f.flush()
+        os.fsync(f.fileno())
     return filepath
 
 

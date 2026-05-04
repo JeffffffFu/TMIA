@@ -4,7 +4,6 @@ from training import get_unlearn_method
 from parameter_parser import parameter_parser
 from attack.baseline.baseline import run_baseline_attack
 
-
 def main(args):
     if args['attack_method'] == 'None':
         unlearn_method = get_unlearn_method(args['U_method'])
